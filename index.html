@@ -6,12 +6,33 @@
     <body>
         <script>
             // function to redirect
-            function redirect() {
-                window.location.href = "https://www.google.com";
+            function passRedirect() {
+                // grab the values from the form
+                var studentName = document.getElementById("student-name").value;
+                var issuer = document.getElementById("issuer").value;
+                var reason = document.getElementById("reason").value;
+                var destination = document.getElementById("class").value;
+                // replace spaces with %20
+                issuer = issuer.replace(" ", "%20");
+                reason = reason.replace(" ", "%20");
+                destination = destination.replace(" ", "%20");
+                // redirect to the pass page
+                window.location.href = "html/pass.html?student-name=" + studentName + "&issuer=" + issuer + "&reason=" + reason + "&destination=" + destination;
             }
         </script>
+        <h1>qDread's Pass Generator</h1>
+        <p>to prove a point</p>
         <form>
+            <label for="student-name">Student Name</label><br>
+            <input type="text" id="student-name" placeholder="Full name"><br>
+            <label for="issuer">Issuer</label><br>
+            <input type="text" id="issuer" placeholder=""><br>
+            <label for="reason">Reason</label><br>
+            <input type="text" id="reason"><br>
+            <label for="class">Class, ex AP COMPUTER SCIENCE A</label><br>
+            <input type="text" id="class"><br>
         </form>
-        <button onclick="redirect()">depression</button>
+        <!-- for some reason having the redirect run on form submit doesnt work. this makes me sad. -->
+        <button onclick="passRedirect()">depression</button>
     </body>
 </html>
