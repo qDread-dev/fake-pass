@@ -6,9 +6,16 @@
     <body>
         <script>
             // function to redirect
-            function redirect() {
-                window.location.href = "/Project1/html/login.html";
-            }
+            window.onload = function() {
+                const queryString = window.location.search;
+                const urlParams = new URLSearchParams(queryString);
+                const studentName = urlParams.get('student-name');
+                const issuer = urlParams.get('issuer');
+
+            };
         </script>
+        <table>
+            <tbody></tbody>
+        </table>
     </body>
 </html>
