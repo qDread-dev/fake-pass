@@ -12,12 +12,14 @@
                 var issuer = document.getElementById("issuer").value;
                 var reason = document.getElementById("reason").value;
                 var destination = document.getElementById("class").value;
+                var passType = document.getElementById("pass-type").value;
                 // replace spaces with %20
                 issuer = issuer.replace(" ", "%20");
                 reason = reason.replace(" ", "%20");
                 destination = destination.replace(" ", "%20");
+
                 // redirect to the pass page
-                window.location.href = "html/pass.html?student-name=" + studentName + "&issuer=" + issuer + "&reason=" + reason + "&destination=" + destination;
+                window.location.href = "html/pass.html?student-name=" + studentName + "&issuer=" + issuer + "&reason=" + reason + "&destination=" + destination + "&pass-type=" + passType;
             }
         </script>
         <h1>qDread's Pass Generator</h1>
@@ -31,6 +33,13 @@
             <input type="text" id="reason"><br>
             <label for="class">Class, ex AP COMPUTER SCIENCE A</label><br>
             <input type="text" id="class"><br>
+            <label for="pass-type">Pass Type</label><br>
+            <select id="pass-type">
+                <option value="bulldog-one">ELT Block One</option>
+                <option value="bulldog-two">ELT Block Two</option>
+                <option value="tardy">Tardy Pass</option>
+                <option value="hall">Hall Pass</option>
+            </select>
         </form>
         <!-- for some reason having the redirect run on form submit doesnt work. this makes me sad. -->
         <button onclick="passRedirect()">depression</button>

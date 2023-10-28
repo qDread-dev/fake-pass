@@ -22,18 +22,21 @@
                 var issuer = urlParams.get('issuer');
                 var reason = urlParams.get('reason');
                 var destination = urlParams.get('destination');
+                var passType = urlParams.get('pass-type');
                 // re-add spaces
                 studentName = studentName.replace("%20", " ");
                 issuer = issuer.replace("%20", " ");
                 reason = reason.replace("%20", " ");
                 destination = destination.replace("%20", " ");
+                if (passType == "tardy") {
+                    issuer = "Student";
+                }
                 // set the values
                 document.getElementById("name").innerHTML = studentName;
                 document.getElementById("date").innerHTML = new Date().toLocaleDateString();
                 document.getElementById("time").innerHTML = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
                 document.getElementById("reason").innerHTML = reason;
                 document.getElementById("issuer").innerHTML = issuer;
-
 
             };
         </script>
