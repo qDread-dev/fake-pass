@@ -1,21 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-
     </head>
     <body>
+        <style>
+            #pass-table {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            #pass-table td {
+                border: 1px solid black;
+                padding: 5px;
+            }
+        </style>
         <script>
             // function to redirect
             window.onload = function() {
                 const queryString = window.location.search;
                 const urlParams = new URLSearchParams(queryString);
-                const studentName = urlParams.get('student-name');
-                const issuer = urlParams.get('issuer');
+                var studentName = urlParams.get('student-name');
+                var issuer = urlParams.get('issuer');
+                var reason = urlParams.get('reason');
+                var destination = urlParams.get('destination');
+                // re-add spaces
+                studentName = studentName.replace("%20", " ");
+                issuer = issuer.replace("%20", " ");
+                reason = reason.replace("%20", " ");
+                destination = destination.replace("%20", " ");
+                // set the values
+                document.getElementById("name").innerHTML = studentName;
+                document.getElementById("date").innerHTML = new Date().toLocaleDateString();
+                document.getElementById("time").innerHTML = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                document.getElementById("reason").innerHTML = reason;
+                document.getElementById("issuer").innerHTML = issuer;
+
 
             };
         </script>
-        <table>
-            <tbody></tbody>
+        <table id="pass-table">
+            <tbody>
+                <tr>
+                    <td>Student</td>
+                    <td id="name">tba</td>
+                </tr>
+                <tr>
+                    <td>Date</td>
+                    <td id="date">tba</td>
+                </tr>
+                <tr>
+                    <td>Time</td>
+                    <td id="time">tba</td>
+                </tr>
+                <tr>
+                    <td>Reason</td>
+                    <td id="reason">tba</td>
+                </tr>
+                <tr>
+                    <td>Issued by</td>
+                    <td id="issuer">tba</td>
+                </tr>
+            </tbody>
         </table>
     </body>
 </html>
